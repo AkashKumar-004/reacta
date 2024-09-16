@@ -1,20 +1,28 @@
-// import { Loader } from "lucide-react";
-
+import React from 'react'
+import Navbar from './components/NavBar'
 const App = () => {
-  return (
-    <>
-      <div className="h-screen w-screen flex justify-center items-center bg-purple-600">
-        <div className="h-3/6 w-[30%] flex justify-center items-center bg-white rounded-md shadow-2xl">
-          <form className="w-[80%] h-[80%] flex flex-col justify-center items-center gap-4">
-            <input type="text" name="" id="" placeholder="Name" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2 hover:border-purple-500" />
-            <input type="text" name="" id="" placeholder="email" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2 hover:border-purple-500" />
-            <input type="number" name="" id="" placeholder="phone" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2 hover:border-purple-500" />
-            <input type="password" name="" id="" placeholder="password" className="p-3 bg-[#f8f8f8] w-full font-bold outline-none active:outline-none focus:border-b-2 hover:border-purple-500" />
-            <button type="submit" className="w-full bg-purple-600 text-white p-3">Register</button>
-          </form>
+  const ak=hi;
+    return (
+      <>
+      <div className="h-lvh w-lvw">
+      <div className="h-[5%]">
+        <Navbar {ak}/>
+      </div>
+      <div className="bg-gradient-to-r from-slate-500 to-slate-950  flex justify-center items-center h-[95%]">
+        <div className="bg-gradient-to-r from-slate-500 to-slate-950 h-3/5 w-1/3 flex justify-center flex-col items-center rounded-md shadow-xl gap-3">
+        <form action="submit" className="gap-5 flex justify-center items-center flex-col w-full">
+        <div className="flex justify-center items-center text-white text-2xl">Login form</div>
+          <input type="text" placeholder='name' className=' p-3 bg-gradient-to-r from-slate-900 to-slate-500  w-[50%] shadow-lg outline-none active:outline-none focus:border-b-2  hover:border-black' />
+          <input type="name" placeholder='email' className=' p-3 bg-gradient-to-r from-slate-900 to-slate-500  w-[50%] shadow-lg outline-none focus:border-b-2 hover:border-black' />
+          <input type="number" placeholder='phone' className=' p-3 bg-gradient-to-r from-slate-900 to-slate-500  w-[50%] shadow-lg outline-none focus:border-b-2 hover:border-black' />
+          <button type="button" className='bg-gradient-to-r from-slate-500 to-slate-950 rounded-md size-1/4 p-1  shadow-xl'>submit</button>
+        </form>
+        <div className="text-white">Not a member <a href='' target='_blank' className='text-blue-700'>register Here</a> </div>
         </div>
       </div>
-    </>
+      </div>
+      </>
   )
 }
-export default App;
+
+export default App
