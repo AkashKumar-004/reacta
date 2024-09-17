@@ -1,12 +1,16 @@
 import React from 'react'
 import Navbar from './components/NavBar'
 const App = () => {
-  const ak=hi;
+
+  const data={
+    "name" : "akash",
+    "classa" :" IT_A"
+  }
     return (
       <>
       <div className="h-lvh w-lvw">
       <div className="h-[5%]">
-        <Navbar {ak}/>
+        <Navbar data={data}/>
       </div>
       <div className="bg-gradient-to-r from-slate-500 to-slate-950  flex justify-center items-center h-[95%]">
         <div className="bg-gradient-to-r from-slate-500 to-slate-950 h-3/5 w-1/3 flex justify-center flex-col items-center rounded-md shadow-xl gap-3">
