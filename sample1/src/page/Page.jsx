@@ -4,10 +4,10 @@ const Page=()=>{
     return(
         <>
         <div className="h-screen w-screen ">
-            <div className="h-[80vh] w-[100%] flex flex-row bg-sky-300">
-                <div className="w-[40%] h-full flex items-center justify-center shadow-2xl"><img src={Cat}></img></div>
+            <div className="h-[80vh] w-[100%] flex flex-row bg-white/5">
+                <div className="w-[40%] h-full flex items-center justify-center shadow-md shadow-black/15"><img src={Cat}></img></div>
                 <div className="w-[60%] h-full flex gap-6 flex-col">
-                    <div className=" h-[50%] w-full flex justify-center items-center shadow-md">
+                    <div className=" h-[50%] w-full flex justify-center items-center shadow-sm">
                             <div className="w-[80%] flex justify-center items-start flex-col">AKASH KUMAR S</div>
                     </div>
                     <div className=" h-[50%] flex items-center justify-center flex-col">
