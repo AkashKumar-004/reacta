@@ -1,7 +1,9 @@
 import { Minus, User2 } from "lucide-react";
 import { useRef, useState } from "react";
 import{Link,NavLink} from "react-router-dom"
+import Login from "./login";
 const NavBar=()=>{
+  
   const emailref=useRef(null)
   const passwordref=useRef(null)
   const [userdata,setuserdata]=useState({
@@ -30,9 +32,14 @@ const NavBar=()=>{
        console.log(emailref.current.value,"  ",passwordref.current.value)
     }
     const [visible,setvisible]=useState(false)
+    const refhandle=(e)=>{
+      e.preventDefault()
+      const a=name.current.value
+      console.log(a)
+    }
     return(
         <>
-        <div className="bg-white flex h-[3.5rem] w-screen justify-center items-center shadow-2xl">
+        <div className="bg-white flex h-[3.5rem] w-screen justify-center items-center shadow-md">
             <div className=" w-[65%] bg-white  flex justify-start items-center shadow-2xl">
                 <div className="w-[80%] flex items-center px-6">WEBSITE</div>
             </div>
@@ -53,15 +60,14 @@ const NavBar=()=>{
         <>
           <div className="h-screen w-screen flex items-center absolute justify-center z-40 bg-black/30">
             <div className="h-[50%] w-[25%] flex z-50 bg-black/40 flex-col rounded-md">
-            <div className="h-[10%] flex items-end justify-end w-[95%]"><Minus className="border-2 border-black rounded-xl size-6 bg-slate-300/15" onClick={()=>{setvisible(false)}} /></div>
-                      <form action="submit" className="gap-5 flex justify-center items-center flex-col h-[80%] w-full">
+            <div className="h-[10%] flex items-end justify-end w-[95%]"><Minus className="border-2 border-black rounded-xl size-6 bg-slate-300/15" onClick={()=>{setvisible(!visible)}}/></div>
+                      <form action="submit" className="gap-5 flex justify-center items-center flex-col h-[80%] w-full" >
                           <div className="flex text-white/70 text-2xl">Login</div>
                             <input type="text" placeholder='name' className=' p-3 text-black  bg-white/50 rounded-md w-[50%] shadow-lg outline-none active:outline-none ' />
-                            <input type="name" placeholder='email' className=' p-3 text-black bg-white/50 rounded-md  w-[50%] shadow-lg outline-none ' />
-                            <input type="phone" placeholder='phone' className='  p-3 text-black bg-white/50 rounded-md w-[50%] shadow-lg outline-none ' />
-                            <button type="button" className=' text-black bg-white/50 rounded-md size-1/4 p-1  shadow-xl'>submit</button>
+                            <input type="name"  placeholder='email' className=' p-3 text-black bg-white/50 rounded-md  w-[50%] shadow-lg outline-none ' />
+                            <input type="phone"  placeholder='phone' className='  p-3 text-black bg-white/50 rounded-md w-[50%] shadow-lg outline-none ' />
+                            <button className=' text-black bg-white/50 rounded-md size-1/4 p-1  shadow-xl' type="submitz">submit</button>
                           </form> 
-              {/* </div> */}
             </div>
           </div>
         </>
