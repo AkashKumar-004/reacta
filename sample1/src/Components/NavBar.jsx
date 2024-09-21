@@ -1,17 +1,23 @@
 import { Minus, User2 } from "lucide-react";
 import { useRef, useState } from "react";
 import{Link,NavLink} from "react-router-dom"
-import Login from "./login";
+
+import { useDispatch } from "react-redux";
+import { login } from "../redux/UserSlice";
 const NavBar=()=>{
   
   const emailref=useRef(null)
   const passwordref=useRef(null)
-  const [userdata,setuserdata]=useState({
-    email:'',
-    password:''
-  })
-  const handlestate=(e)=>{
-    setuserdata({...userdata,[e.target.id]:e.target.value})
+  const nameref=useRef(null)
+  const dispatch=useDispatch()
+  const handle=(e)=>
+  {
+    e.preventDefault()
+    dispatch(login({
+      name:nameref.current.value,
+      email:emailref.current.value,
+      password:passwordref.current.value
+    }))
   }
     const NavLinks=[{
         title:"Page",
@@ -26,17 +32,7 @@ const NavBar=()=>{
         path:"/contact"
     }
     ]
-    const handle=(e)=>{
-      e.preventDefault()
-      console.log(userdata)
-       console.log(emailref.current.value,"  ",passwordref.current.value)
-    }
     const [visible,setvisible]=useState(false)
-    const refhandle=(e)=>{
-      e.preventDefault()
-      const a=name.current.value
-      console.log(a)
-    }
     return(
         <>
         <div className="bg-white flex h-[3.5rem] w-screen justify-center items-center shadow-md">
@@ -61,12 +57,14 @@ const NavBar=()=>{
           <div className="h-screen w-screen flex items-center absolute justify-center z-40 bg-black/30">
             <div className="h-[50%] w-[25%] flex z-50 bg-black/40 flex-col rounded-md">
             <div className="h-[10%] flex items-end justify-end w-[95%]"><Minus className="border-2 border-black rounded-xl size-6 bg-slate-300/15" onClick={()=>{setvisible(!visible)}}/></div>
-                      <form action="submit" className="gap-5 flex justify-center items-center flex-col h-[80%] w-full" >
+                      <form action="submit" className="gap-5 flex justify-center items-center flex-col h-[80%] w-full" onSubmit={handle} >
                           <div className="flex text-white/70 text-2xl">Login</div>
-                            <input type="text" placeholder='name' className=' p-3 text-black  bg-white/50 rounded-md w-[50%] shadow-lg outline-none active:outline-none ' />
-                            <input type="name"  placeholder='email' className=' p-3 text-black bg-white/50 rounded-md  w-[50%] shadow-lg outline-none ' />
-                            <input type="phone"  placeholder='phone' className='  p-3 text-black bg-white/50 rounded-md w-[50%] shadow-lg outline-none ' />
-                            <button className=' text-black bg-white/50 rounded-md size-1/4 p-1  shadow-xl' type="submitz">submit</button>
+                            <input type="text" ref={nameref} placeholder='name' className=' p-3 text-black  bg-white/50 rounded-md w-[50%] shadow-lg outline-none active:outline-none ' />
+                            <input type="name" ref={emailref} placeholder='email' className=' p-3 text-black bg-white/50 rounded-md  w-[50%] shadow-lg outline-none ' />
+                            <input type="phone" ref={passwordref} placeholder='phone' className='  p-3 text-black bg-white/50 rounded-md w-[50%] shadow-lg outline-none ' />
+                            <div className="flex items-center justify-center flex-row gap-6 w-full"><button className=' text-black bg-white/50 w-[20%] shadow-xl rounded-sm' type="submit">submit</button>
+                            <button className=' text-black bg-white/50 w-[20%] shadow-xl rounded-sm' type="submit">Lagout</button>
+                            </div>
                           </form> 
             </div>
           </div>
