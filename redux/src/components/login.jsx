@@ -14,7 +14,7 @@ const Login=()=>{
     return(
         <>
         <form onSubmit={handle}>
-            <input type="text" name='name' ref={uname} />
+            <input type="text" ref={uname} />
             <button type='submit'>login</button>
         </form>
         <button onClick={()=>{dispatch(login())}}>logout</button>
